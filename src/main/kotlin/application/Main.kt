@@ -8,6 +8,7 @@ fun main() {
     val product = Product("Apple Pencil")
     cart.products.add(product)
     println("Cart = $cart")
+    println()
     val products: List<Product> = cart.products
 
 
