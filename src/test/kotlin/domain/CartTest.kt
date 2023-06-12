@@ -34,9 +34,10 @@ class CartTest {
 
         cart.items.add(Item(product, 2))
 
-        cart.items.remove(Item(product, 2))
+        cart.removeItem(Item(product, 2))
         val actual = cart.items
 
         assertEquals(actual, mutableListOf<Item>())
+        assertEquals(listOf("Some test product"), cart.getRemovedItems())
     }
 }
