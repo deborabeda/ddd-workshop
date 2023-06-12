@@ -6,7 +6,8 @@ import domain.Product
 fun main() {
     val cart = Cart(mutableListOf())
     val product = Product("Apple Pencil")
-    cart.products.add(product)
+    val product2 = Product("Sony Wireless headphone")
+    cart.products.addAll(arrayOf(product, product2))
     println("Cart = $cart")
     val products: List<Product> = cart.products
 
