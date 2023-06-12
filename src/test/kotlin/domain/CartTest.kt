@@ -9,24 +9,21 @@ class CartTest {
     fun shouldAddToCart() {
         val cart = Cart(mutableListOf())
         val product = Product("Some test product")
-        cart.products.add(product)
+        cart.items.add(Item(product, 1))
 
-        val actual = cart.products
+        val actual = cart.items
 
         assertEquals(1, actual.size)
-        assertEquals("Some test product", actual[0].name)
+        assertEquals("Some test product", actual[0].product.name)
     }
 
     @Test
     fun shouldGetRightQuantity(){
         val cart = Cart(mutableListOf())
         val product = Product("Some test product")
-        val product1 = Product("Some test product")
-        cart.products.add(product)
-        cart.products.add(product1)
+        cart.items.add(Item(product, 2))
+        val actual = cart.items
 
-        val actual = cart.quantity()
-
-        assertEquals(2, actual["Some test product"])
+        assertEquals(2, actual[0].quantity)
     }
 }

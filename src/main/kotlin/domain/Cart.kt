@@ -1,7 +1,7 @@
 package domain
 
-data class Cart(val products: MutableList<Product>) {
+data class Cart(val items: MutableList<Item>) {
 
-    fun quantity(): Map<String, Int> = products.groupingBy { it.name }.eachCount()
+    //fun quantity(): Map<String, Int> = items.groupingBy { it.product.name }.eachCount()
 
 }
