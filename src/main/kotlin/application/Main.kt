@@ -8,7 +8,6 @@ fun main() {
     val cart = Cart(mutableListOf())
     val product = Product("Apple Pencil")
     val product2 = Product("Sony Wireless headphone")
-    //val product3 = Product("Apple Pencil")
     cart.items.addAll(arrayOf(Item(product, 1), Item(product2, 2)))
     println("Cart = $cart")
     val items: List<Item> = cart.items
