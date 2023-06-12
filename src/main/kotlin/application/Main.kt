@@ -5,7 +5,7 @@ import domain.Item
 import domain.Product
 
 fun main() {
-    val cart = Cart(mutableListOf())
+    val cart = Cart(items = mutableListOf())
     val product = Product("Apple Pencil")
     val product2 = Product("Sony Wireless headphone")
     val product3 = Product("Sony Wireless headphone new")

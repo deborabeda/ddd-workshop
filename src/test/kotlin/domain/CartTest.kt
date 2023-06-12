@@ -2,12 +2,14 @@ package domain
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import kotlin.test.assertNotEquals
+import kotlin.test.assertTrue
 
 class CartTest {
 
     @Test
     fun shouldAddToCart() {
-        val cart = Cart(mutableListOf())
+        val cart = Cart(items = mutableListOf())
         val product = Product("Some test product")
         cart.items.add(Item(product, 1))
 
@@ -18,8 +20,8 @@ class CartTest {
     }
 
     @Test
-    fun shouldGetRightQuantity(){
-        val cart = Cart(mutableListOf())
+    fun shouldGetRightQuantity() {
+        val cart = Cart(items = mutableListOf())
         val product = Product("Some test product")
         cart.items.add(Item(product, 2))
         val actual = cart.items
@@ -28,8 +30,8 @@ class CartTest {
     }
 
     @Test
-    fun shouldRemoveAProductFromCart(){
-        val cart = Cart(mutableListOf())
+    fun shouldRemoveAProductFromCart() {
+        val cart = Cart(items = mutableListOf())
         val product = Product("Some test product")
 
         cart.items.add(Item(product, 2))
@@ -39,5 +41,20 @@ class CartTest {
 
         assertEquals(actual, mutableListOf<Item>())
         assertEquals(listOf("Some test product"), cart.getRemovedItems())
+    }
+
+    @Test
+    fun shouldBeAbleToDifferentiateBetweenSimilarCarts() {
+
+        val cart = Cart(items = mutableListOf())
+        val item = Item(Product("Some test product"), 2)
+
+        cart.items.add(item)
+
+        val cart2 = Cart(items = mutableListOf())
+
+        cart2.items.add(item)
+
+        assertNotEquals(cart, cart2)
     }
 }
