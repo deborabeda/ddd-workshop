@@ -1,9 +1,8 @@
 package domain
 
-import java.io.Serializable
 import java.util.UUID
 
-data class Cart(var id: UUID? = null, val items: MutableList<Item>) : Serializable {
+data class Cart(var id: UUID? = null, val items: MutableList<Item>) {
 
     init {
         id = UUID.randomUUID()

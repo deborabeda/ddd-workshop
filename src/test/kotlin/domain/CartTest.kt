@@ -2,6 +2,7 @@ package domain
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import java.math.BigDecimal
 import kotlin.test.assertNotEquals
 import kotlin.test.assertTrue
 
@@ -10,7 +11,7 @@ class CartTest {
     @Test
     fun shouldAddToCart() {
         val cart = Cart(items = mutableListOf())
-        val product = Product("Some test product")
+        val product = Product("Some test product", Price(BigDecimal(256), Currency.USD))
         cart.items.add(Item(product, 1))
 
         val actual = cart.items
@@ -22,7 +23,7 @@ class CartTest {
     @Test
     fun shouldGetRightQuantity() {
         val cart = Cart(items = mutableListOf())
-        val product = Product("Some test product")
+        val product = Product("Some test product", Price(BigDecimal(256), Currency.USD))
         cart.items.add(Item(product, 2))
         val actual = cart.items
 
@@ -32,7 +33,7 @@ class CartTest {
     @Test
     fun shouldRemoveAProductFromCart() {
         val cart = Cart(items = mutableListOf())
-        val product = Product("Some test product")
+        val product = Product("Some test product", Price(BigDecimal(256), Currency.USD))
 
         cart.items.add(Item(product, 2))
 
@@ -47,7 +48,7 @@ class CartTest {
     fun shouldBeAbleToDifferentiateBetweenSimilarCarts() {
 
         val cart = Cart(items = mutableListOf())
-        val item = Item(Product("Some test product"), 2)
+        val item = Item(Product("Some test product", Price(BigDecimal(256), Currency.USD)), 2)
 
         cart.items.add(item)
 
