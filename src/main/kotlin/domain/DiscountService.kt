@@ -6,18 +6,15 @@ class DiscountService {
 
     val DISCOUNT_PERCENTAGE = 10
 
-    fun applyDiscount(product: Product) : Product {
-        val competitorProducts = CompetitorProducts.products.filter{ it.key === product.name }.toList()
+    fun applyDiscount(product: Product): Product {
+        val competitorPrice: Price? = CompetitorProducts.products[product.name]
 
-        if(competitorProducts.isNotEmpty()) {
-            val competitorProduct = competitorProducts.first()
-            val amount = competitorProduct.second.amount
-
-            return Product(
-                    competitorProduct.first,
-                    Price(amount.subtract(amount.divide(BigDecimal(DISCOUNT_PERCENTAGE))), Currency.USD))
-        }
-
-        return product
+        return competitorPrice?.let { price ->
+            val amount = price.amount
+            Product(
+                product.name,
+                Price(amount.subtract(amount.divide(BigDecimal(DISCOUNT_PERCENTAGE))), Currency.USD)
+            )
+        } ?: product
     }
 }
