@@ -7,4 +7,5 @@ object CompetitorProducts {
         "Apple Pencil" to Price(BigDecimal(121), Currency.USD),
         "Sony Wireless headphone" to Price(BigDecimal(256), Currency.USD)
     )
+
 }
