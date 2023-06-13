@@ -24,4 +24,8 @@ fun main() {
     println("products = $items")
     println("removed products = ${cart.getRemovedItems()}")
     println("----------------------------------------")
+
+    val order = cart.checkOut()
+
+    println("order = $order")
 }
