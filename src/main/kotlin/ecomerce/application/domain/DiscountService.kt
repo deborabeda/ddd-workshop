@@ -13,7 +13,8 @@ class DiscountService {
             val amount = price.amount
             Product(
                 product.name,
-                Price(amount.subtract(amount.divide(BigDecimal(DISCOUNT_PERCENTAGE))), Currency.USD)
+                Price(amount.subtract(amount.divide(BigDecimal(DISCOUNT_PERCENTAGE))), Currency.USD),
+                product.weightInGrams
             )
         } ?: product
     }

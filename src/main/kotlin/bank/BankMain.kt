@@ -4,6 +4,7 @@ import bank.domain.Address
 import bank.domain.BankAccount
 import bank.domain.Customer
 
+/*
 fun main() {
 
     val address = Address("Berlin")
@@ -18,3 +19,4 @@ fun main() {
     println("Customer = $customer")
     println("----------------------------------------")
 }
+*/

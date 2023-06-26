@@ -1,4 +1,4 @@
 package ecomerce.application.domain
 
-data class Product(val name: String, val price: Price)
+data class Product(val name: String, val price: Price, val weightInGrams: Int)
 
